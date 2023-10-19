@@ -1,0 +1,118 @@
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    padding-top: 40px;
+  }
+  
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .section-title h2:before,
+  .section-title h2:after {
+    content: "";
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+    display: inline-block;
+  }
+  
+  .section-title h2:before {
+    margin: 0 15px 10px 0;
+  }
+  
+  .section-title h2:after {
+    margin: 0 0 10px 15px;
+  }
+  
+  .section-title p {
+    margin-bottom: 0;
+  }
+
+
+
+.team {
+    --background-color: #f4f4f4;
+  }
+  
+  .team .member {
+    position: relative;
+  }
+  
+  .team .member .member-img {
+    margin: 0 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid var(--background-color);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 1024px) {
+    .team .member .member-img {
+      margin: 0 60px;
+    }
+  }
+  
+  .team .member .member-img img {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .team .member .member-img .social {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding-bottom: 20px;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .team .member .member-img .social a {
+    transition: 0.3s;
+    /* color: var(--contrast-color); */
+    color:whitesmoke;
+    font-size: 20px;
+    margin: 0 8px;
+  }
+  
+  .team .member .member-img .social a:hover {
+    /* color: var(--primary-color); */
+    color: #e84545;
+  }
+  
+  .team .member .member-info {
+    margin-top: 30px;
+  }
+  
+  .team .member .member-info h4 {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+  
+  .team .member .member-info span {
+    font-style: italic;
+    display: block;
+    font-size: 15px;
+    color: rgba(var(--default-color-rgb), 0.6);
+    margin-bottom: 10px;
+  }
+  
+  .team .member .member-info p {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  
+  .team .member:hover .member-img .social {
+    padding-bottom: 0;
+    visibility: visible;
+    opacity: 1;
+  }
