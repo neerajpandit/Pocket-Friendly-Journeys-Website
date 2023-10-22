@@ -14,7 +14,7 @@ function Blog(){
     <Card class="mt-4" style={{ width: '23rem' }}>
       <Card.Img variant="top" src={b1} style={{ width: '23rem',height:'300px' }} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>Akhil Card Title</Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
