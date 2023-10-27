@@ -9,9 +9,9 @@ function Testonomial() {
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="section-title">Testimonials</h3>
+            {/* <h3 class="section-title">Testimonials</h3> */}
             <div class="section-title-divider"></div>
-            <p class="section-description">Erdo lide, nora porodo filece, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
+            
           </div>
         </div>
 

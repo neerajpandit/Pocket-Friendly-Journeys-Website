@@ -1,28 +1,42 @@
-import React from "react";
+// import React from "react";
 import './Contact.css';
-
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Contact(){
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Make API call using Axios
+    axios.post('http://127.0.0.1:8000/app/feedback/', formData)
+      .then(response => {
+        console.log('Data sent successfully:', response.data);
+        // You can handle success here, e.g., show a success message to the user
+      })
+      .catch(error => {
+        console.error('Error sending data:', error);
+        // Handle errors, show error message to the user, etc.
+      });
+  };
     return(
         <>
             <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
-        {/* <div class="d-flex justify-content-between align-items-center">
-          <h2>Contact</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Contact</li>
-          </ol>
-        </div> */}
+     
 <br/><br/><br/>
       </div>
     </section>
-
-    
-    {/* <div class="map-section">
-      <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-    </div> */}
 
     <section id="contact" class="contact">
       <div class="container">
@@ -59,28 +73,47 @@ function Contact(){
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form onSubmit={handleSubmit}   class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} class="form-control" id="name" placeholder="Your Name" required/>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>
+                  <input type="email" value={formData.email} onChange={handleChange} class="form-control" name="email" id="email" placeholder="Your Email" required/>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required/>
+                <input type="text" value={formData.subject} onChange={handleChange} class="form-control" name="subject" id="subject" placeholder="Subject" required/>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" value={formData.summary} onChange={handleChange} name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                {/* <div class="loading">Loading</div>
+                <div class="error-message"></div> */}
+                {/* <div class="sent-message">Your message has been sent. Thank you!</div> */}
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+            </form> 
+            {/* <form onSubmit={handleSubmit}>
+      <div>
+        <label>Name:</label>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Subject:</label>
+        <input type="text" name="subject" value={formData.subject} onChange={handleChange} required />
+      </div>
+      <div>
+        <label>Summary:</label>
+        <textarea name="summary" value={formData.summary} onChange={handleChange} required />
+      </div>
+      <button type="submit">Submit</button>
+    </form> */}
           </div>
 
         </div>
