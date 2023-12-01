@@ -7,6 +7,7 @@ function Slide() {
   return (
     <Carousel class="mb-5">
       <Carousel.Item interval={1000}>
+        
       <img
           className="d-block w-100"
           // src="assets\img\slide\slide-02.jpg"
@@ -16,6 +17,7 @@ function Slide() {
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000}>
